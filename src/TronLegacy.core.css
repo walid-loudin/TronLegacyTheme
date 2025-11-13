@@ -1,0 +1,187 @@
+/* Tron Legacy Theme for Discord */
+
+@import url("https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap");
+
+/* TRON BORDER OVERLAY */
+
+body::after {
+  content: "";
+  pointer-events: none;
+  position: fixed;
+  inset: 0;
+  border: 3px solid rgb(var(--rgb-highlight));
+  box-shadow:
+    0 0 12px rgba(var(--rgb-highlight), 1),
+    0 0 20px rgba(var(--rgb-highlight), 0.8),
+    inset 0 0 12px rgba(var(--rgb-highlight), 0.7);
+  z-index: 9999999;
+}
+
+
+/* GLOBAL BACKGROUND + FONT – TRON GRID */
+
+.theme-dark body {
+  background-color: var(--background);
+
+  /* TRON grid: horizontal + vertical cyan lines */
+  background-image:
+    linear-gradient(90deg, rgba(0, 255, 255, 0.08) 1px, transparent 1px),
+    linear-gradient(180deg, rgba(0, 255, 255, 0.08) 1px, transparent 1px),
+    var(--background-image);
+  background-size: 64px 64px, 64px 64px, var(--background-size);
+  background-position: 0 0, 0 0, var(--background-position);
+
+  backdrop-filter: blur(var(--background-blur))
+                   brightness(var(--background-brightness));
+
+  font-family: "Share Tech Mono", Consolas, Menlo, monospace;
+}
+
+/* Scanline overlay */
+.theme-dark body::before {
+  content: "";
+  pointer-events: none;
+  position: fixed;
+  inset: 0;
+  background-image: repeating-linear-gradient(
+    to bottom,
+    rgba(0, 255, 255, 0.06) 0px,
+    rgba(0, 255, 255, 0.06) 1px,
+    transparent 2px,
+    transparent 4px
+  );
+  mix-blend-mode: screen;
+  opacity: 0.4;
+  animation: tron-scan 8s linear infinite;
+  z-index: 0;
+}
+
+@keyframes tron-scan {
+  0%   { transform: translateY(0); }
+  100% { transform: translateY(4px); }
+}
+
+/* Make main surfaces transparent so only neon frames show */
+.theme-dark .appMount__51fd7,
+.theme-dark .app__160d8,
+.theme-dark .bg__960e4,
+.theme-dark .layer__960e4,
+.theme-dark .container__2637a,
+.theme-dark .sidebar__5e434,
+.theme-dark .chat_f75fb0,
+.theme-dark .chatContent_f75fb0,
+.theme-dark .title_f75fb0,
+.theme-dark .members_c8ffbb,
+.theme-dark .content_f75fb0,
+.theme-dark .pageWrapper_a3a4ce {
+  background: transparent !important;
+}
+
+/* Panels outlined like Tron windows */
+.theme-dark .chat_f75fb0,
+.theme-dark .sidebar__5e434,
+.theme-dark .members_c8ffbb,
+.theme-dark .panels__5e434,
+.theme-dark .container__91a9d {
+  border: var(--panel-border);
+  box-shadow: var(--panel-glow);
+}
+
+/* Channel list separators with glowing lines */
+.theme-dark .guildSeparator-33mFX6,
+.theme-dark .divider__908e2,
+.theme-dark .divider_bdb894 {
+  background-color: var(--grid-line) !important;
+  box-shadow: 0 0 4px rgba(var(--rgb-highlight), 0.8);
+}
+
+/* Unread / new message pills */
+.theme-dark .unreadPill__908e2,
+.theme-dark .bar__3b95d,
+.theme-dark .newMessagesBar__0f481 {
+  background-color: var(--highlight);
+  color: var(--background) !important;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+/* Selected channel gets a subtle orange overlay */
+.theme-dark .selected_c69b6d .link__2ea32 {
+  background-color: rgba(var(--rgb-accent), 0.15) !important;
+  box-shadow: 0 0 8px rgba(var(--rgb-accent), 0.7);
+}
+
+/* Text channels in the left sidebar */
+.theme-dark .containerDefault__29444,
+.theme-dark .containerDefault__29444 *,
+.theme-dark .wrapper__2ea32 .name__2ea32,
+.theme-dark .wrapper__2ea32 .overflow_b0dfc2 {
+  color: var(--highlight) !important;
+  text-shadow: 0 0 4px rgba(var(--rgb-highlight), 0.7);
+}
+
+/* Mention pill more “danger / alert” */
+.theme-dark .numberBadge__40d6f {
+  background-color: rgba(var(--rgb-accent), 0.9) !important;
+  color: var(--background);
+  box-shadow: 0 0 10px rgba(var(--rgb-accent), 1);
+}
+
+/* Warning / error text can use accent instead of red */
+.theme-dark .text-danger {
+  color: var(--accent) !important;
+}
+
+/* Mentions */
+.theme-dark .isUnread__908e2 {
+  border-color: var(--highlight) !important;
+}
+.theme-dark .mentioned__5126c::before {
+  background-color: var(--highlight);
+}
+
+/* Message area input bar */
+.theme-dark .scrollableContainer__74017,
+.theme-dark .channelTextArea__74017 {
+  background-color: rgba(0, 0, 0, 0.7);
+  border-top: var(--panel-border);
+  box-shadow: 0 -2px 6px rgba(var(--rgb-highlight), 0.4);
+}
+
+/* Reactions outlined in cyan */
+.theme-dark .reaction__23977,
+.theme-dark .reactionBtn__23977 {
+  border-color: rgba(var(--rgb-highlight), 0.35) !important;
+}
+.theme-dark .reactionMe__23977 {
+  border-color: var(--highlight) !important;
+  background-color: rgba(var(--rgb-highlight), 0.25) !important;
+}
+
+/* Scrollbar glow */
+.theme-dark ::-webkit-scrollbar-thumb {
+  background-color: var(--highlight);
+  box-shadow: 0 0 8px rgba(var(--rgb-highlight), 0.9);
+}
+.theme-dark ::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+
+/* NEON BORDER EXPAND ON INPUT FOCUS */
+
+.theme-dark .scrollableContainer__74017 {
+  border-top: var(--panel-border);
+  box-shadow: 0 -2px 6px rgba(var(--rgb-highlight), 0.4);
+  transition:
+    box-shadow var(--transition-time),
+    transform var(--transition-time);
+}
+
+/* When anything inside the bar is focused */
+.theme-dark .scrollableContainer__74017:focus-within {
+  box-shadow:
+    0 -2px 10px rgba(var(--rgb-highlight), 0.9),
+    0 0 16px rgba(var(--rgb-highlight), 0.9);
+  transform: translateY(-1px);
+}

@@ -1,0 +1,178 @@
+/**
+ * @name Tron Legacy
+ * @author walid-loudin
+ * @description THE GRID, a dark theme inspired by the neon aesthetics of Tron Legacy. Enjoy the DIGITAL FRONTIER!
+ * @version 1.0.0
+ * @license MIT
+ * @source https://github.com/walid-loudin/TronLegacyTheme
+ * @updateUrl https://raw.githubusercontent.com/walid-loudin/TronLegacyTheme/main/TronLegacy.theme.css
+ * @website https://github.com/walid-loudin
+ */
+
+
+@import url("https://raw.githubusercontent.com/walid-loudin/TronLegacyTheme/main/TronLegacy.core.css");
+
+
+/* VARIABLES */
+:root,
+.visual-refresh,
+.visual-refresh.theme-dark {
+  /* CORE COLORS */
+  --rgb-highlight: 0, 255, 255;
+  --highlight: rgb(var(--rgb-highlight));
+
+  --rgb-accent: 255, 160, 0;
+  --accent: rgb(var(--rgb-accent));
+
+  --rgb-background: 0, 3, 8;
+  --background: rgb(var(--rgb-background));
+
+  --rgb-text: 200, 255, 255;
+  --text: rgb(var(--rgb-text));
+
+  --rgb-close-button: 255, 80, 80;
+  --close-button: rgb(var(--rgb-close-button));
+
+  --rgb-online-color: 0, 255, 191;
+  --online-color: rgb(var(--rgb-online-color));
+  --rgb-afk-color: 255, 255, 102;
+  --afk-color: rgb(var(--rgb-afk-color));
+  --rgb-dnd-color: 255, 64, 64;
+  --dnd-color: rgb(var(--rgb-dnd-color));
+  --rgb-streaming-color: 120, 190, 255;
+  --streaming-color: rgb(var(--rgb-streaming-color));
+
+  /* FX / BORDERS */
+  --transition-time: .25s;
+  --grid-line: rgba(var(--rgb-highlight), 0.35);
+  --panel-border: 1px solid var(--grid-line);
+  --panel-glow: 0 0 6px rgba(var(--rgb-highlight), 0.55);
+
+  /* BACKGROUNDS */ 
+  --background-image: unset;
+  --background-position: center;
+  --background-size: cover;
+  --background-blur: 6px;
+  --background-brightness: 90%;
+
+  --background-primary: var(--background);
+  --background-mobile-primary: var(--background);
+  --background-secondary: var(--background) !important;
+  --background-mobile-secondary: var(--background);
+  --background-secondary-alt: var(--background);
+  --background-tertiary: var(--background);
+  --background-accent: var(--background);
+  --background-floating: var(--background);
+  --background-nested-floating: var(--background);
+
+  --background-base-lowest: var(--background);
+  --background-base-low: var(--background);
+  --background-surface-high: var(--background);
+  --modal-background: var(--background);
+  --modal-footer-background: var(--background);
+  --bg-surface-overlay: var(--background);
+  --activity-card-background: var(--background);
+
+  /* HIGHLIGHTED BACKGROUNDS */
+  --background-modifier-accent: rgba(var(--rgb-highlight), 0.25);
+  --background-modifier-hover: rgba(var(--rgb-highlight), 0.13);
+  --background-modifier-active: rgba(var(--rgb-highlight), 0.32);
+  --background-modifier-selected: rgba(var(--rgb-highlight), 0.45);
+
+  --background-mentioned: rgba(var(--rgb-highlight), 0.28);
+  --background-mentioned-hover: rgba(var(--rgb-highlight), 0.4);
+  --background-message-hover: rgba(var(--rgb-highlight), 0.16);
+  --background-message-highlight: rgba(var(--rgb-highlight), 0.35);
+  --background-message-highlight-hover: rgba(var(--rgb-highlight), 0.45);
+  --background-message-automod: rgba(var(--rgb-highlight), 0.25);
+  --background-message-automod-hover: rgba(var(--rgb-highlight), 0.4);
+
+  --channeltextarea-background: var(--background);
+  --chat-background: var(--background);
+  --chat-border: var(--highlight);
+  --chat-input-container-background: var(--background);
+  --spoiler-hidden-background: var(--highlight);
+  --spoiler-revealed-background: rgba(var(--rgb-highlight), 0.18);
+  --input-background: var(--background);
+  --textbox-markdown-syntax: var(--highlight);
+
+  /* TEXT */
+  --header-primary: var(--highlight);
+  --header-secondary: rgba(var(--rgb-highlight), 0.8);
+  --text-normal: var(--text);
+  --text-muted: rgba(var(--rgb-text), 0.6);
+  --text-link: var(--highlight);
+  --text-link-low-saturation: rgba(var(--rgb-highlight), 0.5);
+  --text-positive: var(--online-color);
+  --text-warning: var(--afk-color);
+  --text-danger: var(--dnd-color);
+  --text-brand: var(--highlight);
+
+  /* BUTTONS */
+  --button-danger-background-disabled: rgba(var(--rgb-close-button), 0.2);
+  --button-danger-background: rgba(var(--rgb-close-button), 0.25);
+  --button-danger-background-hover: rgba(var(--rgb-close-button), 0.7);
+  --button-danger-background-active: rgba(var(--rgb-close-button), 1);
+
+  --button-positive-background-disabled: rgba(var(--rgb-online-color), 0.2);
+  --button-positive-background: rgba(var(--rgb-online-color), 0.25);
+  --button-positive-background-hover: rgba(var(--rgb-online-color), 0.7);
+  --button-positive-background-active: rgba(var(--rgb-online-color), 1);
+
+  --button-primary-background-disabled: rgba(var(--rgb-highlight), 0.18);
+  --button-primary-background: rgba(var(--rgb-highlight), 0.25);
+  --button-primary-background-hover: rgba(var(--rgb-highlight), 0.75);
+  --button-primary-background-active: rgba(var(--rgb-highlight), 1);
+
+  --button-secondary-background-disabled: rgba(var(--rgb-highlight), 0.15);
+  --button-secondary-background: rgba(var(--rgb-highlight), 0.18);
+  --button-secondary-background-hover: rgba(var(--rgb-highlight), 0.5);
+  --button-secondary-background-active: rgba(var(--rgb-highlight), 0.8);
+
+  --button-brand-background-disabled: rgba(var(--rgb-highlight), 0.2);
+  --button-brand-background: rgba(var(--rgb-highlight), 0.25);
+  --button-brand-background-hover: rgba(var(--rgb-highlight), 0.7);
+  --button-brand-background-active: rgba(var(--rgb-highlight), 1);
+
+  /* outlines share same highlight color */
+  --button-outline-primary-border: rgba(var(--rgb-highlight), 0.6);
+  --button-outline-primary-background: transparent;
+  --button-outline-primary-background-hover: rgba(var(--rgb-highlight), 0.15);
+  --button-outline-primary-background-active: rgba(var(--rgb-highlight), 0.3);
+  --button-outline-primary-text: var(--highlight);
+  --button-outline-primary-text-hover: rgb(0, 0, 0);
+  --button-outline-primary-text-active: rgb(0, 0, 0);
+  --button-outline-primary-border-hover: rgba(var(--rgb-highlight), 0.9);
+  --button-outline-primary-border-active: rgba(var(--rgb-highlight), 1);
+
+  /* INTERACTIVE STATES */
+  --interactive-muted: rgba(var(--rgb-highlight), 0.25);
+  --interactive-normal: rgba(var(--rgb-highlight), 0.55);
+  --interactive-hover: rgba(var(--rgb-highlight), 0.9);
+  --interactive-active: var(--highlight);
+
+  --status-danger: var(--dnd-color);
+  --status-warning: var(--afk-color);
+  --status-positive: var(--online-color);
+
+  /* BRAND OVERRIDES */
+  --bg-brand: var(--highlight);
+  --brand-experiment: var(--highlight);
+  --brand-experiment-400: var(--highlight);
+  --brand-experiment-500: var(--highlight);
+  --brand-experiment-600: var(--highlight);
+  --brand-experiment-700: var(--highlight);
+
+  --primary-630: var(--background);
+  --border-faint: rgb(var(--rgb-highlight));
+  --border-subtle: rgb(var(--rgb-highlight));
+  --app-border-frame: rgb(var(--rgb-highlight));
+
+  /* Scrollbars */
+  --scrollbar-thin-thumb: var(--highlight);
+  --scrollbar-auto-thumb: var(--highlight);
+  --scrollbar-auto-scrollbar-color-thumb: var(--highlight);
+  --scrollbar-thin-track: transparent;
+  --scrollbar-auto-track: transparent;
+  --scrollbar-auto-scrollbar-color-track: transparent;
+}
